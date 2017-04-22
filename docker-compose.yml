@@ -1,0 +1,39 @@
+version: '2'
+
+volumes:
+    database_data:
+        driver: local
+
+services:
+    apache:
+        image: centos/httpd:latest
+        ports:
+            - 8080:80
+        volumes:
+            - ./docker/httpd/conf.d/default.conf:/etc/httpd/conf.d/default.conf
+            - ./docker/httpd/log:/var/log/httpd
+        volumes_from:
+            - php
+
+    php:
+        build: ./docker/php/
+        expose:
+            - 9000
+        volumes:
+            - .:/var/www/html
+
+    mysql:
+        image: mysql:latest
+        ports:
+            - 3306:3306
+        expose:
+            - 3306
+        volumes:
+            - database_data:/var/lib/mysql
+        volumes_from:
+            - php
+        environment:
+            MYSQL_ROOT_PASSWORD: secret
+            MYSQL_DATABASE: project
+            MYSQL_USER: project
+            MYSQL_PASSWORD: project
