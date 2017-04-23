@@ -6,9 +6,10 @@ volumes:
 
 services:
     apache:
-        image: centos/httpd:latest
+        build: ./docker/httpd/
         ports:
             - 8080:80
+            - 443:443
         volumes:
             - ./docker/httpd/conf.d/default.conf:/etc/httpd/conf.d/default.conf
             - ./docker/httpd/log:/var/log/httpd
