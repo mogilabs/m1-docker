@@ -69,5 +69,5 @@ To run xdebug, drop a *.user.ini* file into the magento root with the following 
 ```dosini
 [xdebug]
 xdebug.remote_enable=1
-xdebug.remote_host=10.0.0.188
+xdebug.remote_host=<YOUR-IP-ADDRESS>
 ```
