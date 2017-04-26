@@ -26,10 +26,12 @@ Run the following command to get shell access to the specified container
 ## Connecting to MySQL
 Port 3306 is bound to the host's (Your computer) port 3306. Because of this you can connect to MySQL via 127.0.0.1:3306.
 
-**Host**: 127.0.0.1
-**Username**: project
-**Password**: project
-**Database**: project
+| Key          | Value     |
+| ------------ | --------- |
+| **Host**     | 127.0.0.1 |
+| **Username** | project   |
+| **Password** | project   |
+| **Database** | project   |
 
 ## Magento Configuration
 In the *core_config_data* table:
