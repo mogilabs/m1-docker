@@ -25,7 +25,7 @@ Run the following command to get shell access to the specified container
   docker exec -it <containerIdOrName> bash
   ```
 ## MySQL Connectivity
-When running, the MySQL container's port 3306 is bound to the host's (Your computer) port 3306. It's as if you are running MySQL on your computer (but it's really running inside the container). If you already have MySQL running, you may need to update the docker-compose.yml to may the MySQL container to a different port on your computer. Connect via your favorite MySQL editor, such as [Sequal Pro](https://sequelpro.com/)
+When running, the MySQL container's port 3306 is bound to the host's (Your computer) port 3306. It's as if you are running MySQL on your computer (but it's really running inside the container). If you already have your own MySQL running (MAMP, WAMP, Custom MySQL Installation) over port 3306, you will need to update the *docker-compose.yml* to bind the MySQL container to a different port on your computer. Connect via your favorite MySQL editor, such as [Sequal Pro](https://sequelpro.com/)
 
 | Key          | Value     |
 | ------------ | --------- |
@@ -36,6 +36,26 @@ When running, the MySQL container's port 3306 is bound to the host's (Your compu
 | **Database** | project   |
 
 ## Magento Configuration
+In the *app/etc/local.xml* file, the values shown below should be used to successfully connect to the database:
+```xml
+<config>
+    <global>
+        <resources>
+            <default_setup>
+                <connection>
+                    ...
+                    <host><![CDATA[mysql]]></host>
+                    <username><![CDATA[project]]></username>
+                    <password><![CDATA[project]]></password>
+                    <dbname><![CDATA[project]]></dbname>
+                    ...
+                </connection>
+            </default_setup>
+        </resources>
+    </global>
+</config>
+```
+
 In the *core_config_data* table:
 
 | Path                  | Value                  |
