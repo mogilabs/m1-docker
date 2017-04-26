@@ -2,9 +2,12 @@
 Magento 1x Docker Environment
 
 ## Magento Configuration
-Unsecure Base URL: http://127.0.0.1:8080/
+In the *core_config_data* table:
 
-Secure Base URL: https://127.0.0.1/
+| Path                  | Value                  |
+| --------------------- | ---------------------- |
+| web/unsecure/base_url | http://127.0.0.1:8080/ |
+| web/secure/base_url   | https://127.0.0.1/     |
 
 ## Starting The Environment
   ```bash
