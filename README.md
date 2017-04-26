@@ -24,11 +24,12 @@ Run the following command to get shell access to the specified container
   docker exec -it <containerIdOrName> bash
   ```
 ## Connecting to MySQL
-Port 3306 is bound to the host's (Your computer) port 3306. Because of this you can connect to MySQL via 127.0.0.1:3306.
+When running, the MySQL container's port 3306 is bound to the host's (Your computer) port 3306. It's as if you are running MySQL on your computer (but it's really running inside the container). If you already have MySQL running, you may need to update the docker-compose.yml to may the MySQL container to a different port on your computer. Connect via your favorite MySQL editor, such as [Sequal Pro](https://sequelpro.com/)
 
 | Key          | Value     |
 | ------------ | --------- |
 | **Host**     | 127.0.0.1 |
+| **Port**     | 3306      |
 | **Username** | project   |
 | **Password** | project   |
 | **Database** | project   |
